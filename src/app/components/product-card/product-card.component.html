@@ -1,0 +1,8 @@
+<div class="product-card">
+  <img [src]="imagen()" [alt]="nombre()" />
+  <div class="info">
+    <h3>{{ nombre() }}</h3>
+    <p class="precio">{{ precio() | currency : "EUR" }}</p>
+    <button (click)="onComprar()">Comprar</button>
+  </div>
+</div>

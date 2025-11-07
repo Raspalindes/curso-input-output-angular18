@@ -1,11 +1,86 @@
+# 🚀 ¿Cómo clonar y usar este repositorio?
+
+Si nunca has usado Git o es tu primer proyecto Angular, sigue estos pasos:
+
+1. **Clona el repositorio**
+
+Abre una terminal y ejecuta:
+
+```bash
+git clone https://github.com/Raspalindes/curso-input-output-angular18.git
+```
+
+2. **Entra a la carpeta del proyecto**
+
+```bash
+cd curso-input-output-angular18
+```
+
+3. **Instala las dependencias**
+
+Si es tu primer proyecto Angular, asegúrate de tener [Node.js](https://nodejs.org/) instalado.
+
+Luego ejecuta:
+
+```bash
+npm install
+```
+
+4. **Arranca el servidor de desarrollo**
+
+```bash
+ng serve
+```
+
+5. **Abre el navegador en** [http://localhost:4200](http://localhost:4200)
+
+¡Listo! Ya puedes seguir el curso y ver los ejercicios en vivo.
+
+---
+
 # Curso Angular 18 - input() y output() (Nivel Básico)
 
 ## 📚 Tabla de Contenidos
+
 1. [Introducción](#introducción)
 2. [INPUT() - Conceptos Básicos](#input---conceptos-básicos)
 3. [OUTPUT() - Conceptos Básicos](#output---conceptos-básicos)
 4. [Ejemplos Prácticos](#ejemplos-prácticos)
 5. [Ejercicios Guiados](#ejercicios-guiados)
+
+---
+
+## ¿Cómo ver los ejercicios en el navegador?
+
+1. Abre la terminal en la carpeta del proyecto.
+2. Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
+
+```bash
+ng serve
+```
+
+3. Abre tu navegador y visita [http://localhost:4200](http://localhost:4200).
+
+¡Listo! Ahora verás tu aplicación Angular en vivo.
+
+---
+
+## ¿Cómo mostrar un componente en la página principal?
+
+Por defecto, Angular muestra el contenido de `app.component.html`.
+Para ver tu componente nuevo:
+
+1. Abre el archivo `src/app/app.component.html`.
+2. Borra el contenido que viene por defecto (si quieres).
+3. Agrega el selector de tu componente, por ejemplo:
+
+```html
+<app-user-card nombre="Ana García" [edad]="28"></app-user-card>
+```
+
+4. Guarda y recarga la página en el navegador.
+
+Así podrás ver el resultado de cada ejercicio.
 
 ---
 
@@ -44,18 +119,21 @@ clicked = output<void>();
 ### Tipos de input()
 
 #### 1. Input Opcional
+
 ```typescript
 // Puede ser undefined
 edad = input<number>();
 ```
 
 #### 2. Input con Valor por Defecto
+
 ```typescript
 // Si no se pasa, usa 'Invitado'
-nombre = input<string>('Invitado');
+nombre = input<string>("Invitado");
 ```
 
 #### 3. Input Requerido
+
 ```typescript
 // DEBE ser proporcionado
 id = input.required<string>();
@@ -67,12 +145,12 @@ Los inputs se leen como funciones:
 
 ```typescript
 export class MiComponente {
-  nombre = input<string>('Juan');
-  
+  nombre = input<string>("Juan");
+
   mostrarNombre() {
     // ✅ Correcto
     console.log(this.nombre());
-    
+
     // ❌ Incorrecto
     console.log(this.nombre);
   }
@@ -97,12 +175,12 @@ export class MiComponente {
 ### Crear un Output
 
 ```typescript
-import { Component, output } from '@angular/core';
+import { Component, output } from "@angular/core";
 
 export class MiComponente {
   // Output sin datos
   clicked = output<void>();
-  
+
   // Output con datos
   nameChanged = output<string>();
 }
@@ -113,7 +191,7 @@ export class MiComponente {
 ```typescript
 export class MiComponente {
   clicked = output<void>();
-  
+
   handleClick() {
     // Emitir el evento
     this.clicked.emit();
@@ -133,11 +211,11 @@ export class MiComponente {
 // En el componente padre
 export class PadreComponent {
   alHacerClick() {
-    console.log('Click detectado');
+    console.log("Click detectado");
   }
-  
+
   alCambiarNombre(nuevoNombre: string) {
-    console.log('Nuevo nombre:', nuevoNombre);
+    console.log("Nuevo nombre:", nuevoNombre);
   }
 }
 ```
@@ -146,65 +224,66 @@ export class PadreComponent {
 
 ## Ejemplos Prácticos
 
+---
+
+> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
+
 ### Ejemplo 1: Tarjeta de Usuario Simple
 
 **user-card.component.ts**
+
 ```typescript
-import { Component, input } from '@angular/core';
+import { Component, input } from "@angular/core";
 
 @Component({
-  selector: 'app-user-card',
-  templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.css'],
-  standalone: true
+  selector: "app-user-card",
+  templateUrl: "./user-card.component.html",
+  styleUrls: ["./user-card.component.css"],
+  standalone: true,
 })
 export class UserCardComponent {
   nombre = input.required<string>();
   edad = input<number>();
-  avatar = input<string>('https://via.placeholder.com/100');
+  avatar = input<string>("https://via.placeholder.com/100");
 }
 ```
 
 **user-card.component.html**
+
 ```html
 <div class="card">
-  <img [src]="avatar()" [alt]="nombre()">
+  <img [src]="avatar()" [alt]="nombre()" />
   <h3>{{ nombre() }}</h3>
   @if (edad()) {
-    <p>{{ edad() }} años</p>
+  <p>{{ edad() }} años</p>
   }
 </div>
 ```
 
 **user-card.component.css**
-```css
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  max-width: 200px;
-}
-
-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
-}
-
-h3 {
-  margin: 0.5rem 0;
-  color: #333;
-}
 
 p {
+
+```css
+.card {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+img {
+  width: 80px;
+  height: 80px;
+}
+h3 {
+  margin: 8px 0;
+}
+p {
   margin: 0;
-  color: #666;
 }
 ```
 
 **Uso:**
+
 ```html
 <app-user-card nombre="Ana García" [edad]="28" />
 ```
@@ -214,21 +293,22 @@ p {
 ### Ejemplo 2: Botón con Evento
 
 **custom-button.component.ts**
+
 ```typescript
-import { Component, input, output } from '@angular/core';
+import { Component, input, output } from "@angular/core";
 
 @Component({
-  selector: 'app-custom-button',
-  templateUrl: './custom-button.component.html',
-  styleUrls: ['./custom-button.component.css'],
-  standalone: true
+  selector: "app-custom-button",
+  templateUrl: "./custom-button.component.html",
+  styleUrls: ["./custom-button.component.css"],
+  standalone: true,
 })
 export class CustomButtonComponent {
-  texto = input<string>('Click aquí');
-  tipo = input<'primary' | 'secondary'>('primary');
-  
+  texto = input<string>("Click aquí");
+  tipo = input<"primary" | "secondary">("primary");
+
   clicked = output<void>();
-  
+
   onClick() {
     this.clicked.emit();
   }
@@ -236,51 +316,32 @@ export class CustomButtonComponent {
 ```
 
 **custom-button.component.html**
+
 ```html
-<button 
-  [class]="tipo()"
-  (click)="onClick()">
-  {{ texto() }}
-</button>
+<button [class]="tipo()" (click)="onClick()">{{ texto() }}</button>
 ```
 
 **custom-button.component.css**
+
 ```css
 button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  background: #eee;
   cursor: pointer;
-  transition: all 0.2s;
 }
-
 .primary {
-  background: #007bff;
-  color: white;
+  background: #ccc;
 }
-
-.primary:hover {
-  background: #0056b3;
-}
-
 .secondary {
-  background: #6c757d;
-  color: white;
-}
-
-.secondary:hover {
-  background: #545b62;
+  background: #fff;
 }
 ```
 
 **Uso:**
+
 ```html
-<app-custom-button 
-  texto="Guardar"
-  tipo="primary"
-  (clicked)="guardarDatos()"
-/>
+<app-custom-button texto="Guardar" tipo="primary" (clicked)="guardarDatos()" />
 ```
 
 ---
@@ -288,39 +349,41 @@ button {
 ### Ejemplo 3: Contador con Input y Output
 
 **counter.component.ts**
+
 ```typescript
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-counter',
-  templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.css'],
-  standalone: true
+  selector: "app-counter",
+  templateUrl: "./counter.component.html",
+  styleUrls: ["./counter.component.css"],
+  standalone: true,
 })
 export class CounterComponent {
   inicial = input<number>(0);
-  
+
   countChanged = output<number>();
-  
+
   count = signal(0);
-  
+
   ngOnInit() {
     this.count.set(this.inicial());
   }
-  
+
   incrementar() {
-    this.count.update(v => v + 1);
+    this.count.update((v) => v + 1);
     this.countChanged.emit(this.count());
   }
-  
+
   decrementar() {
-    this.count.update(v => v - 1);
+    this.count.update((v) => v - 1);
     this.countChanged.emit(this.count());
   }
 }
 ```
 
 **counter.component.html**
+
 ```html
 <div class="counter">
   <button (click)="decrementar()">-</button>
@@ -330,62 +393,58 @@ export class CounterComponent {
 ```
 
 **counter.component.css**
+
 ```css
 .counter {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  justify-content: center;
-}
-
-button {
-  width: 40px;
-  height: 40px;
-  font-size: 1.5rem;
-  border: 2px solid #007bff;
-  background: white;
-  color: #007bff;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-button:hover {
-  background: #007bff;
-  color: white;
-}
-
-.number {
-  font-size: 2rem;
-  font-weight: bold;
-  min-width: 60px;
   text-align: center;
+}
+button {
+  width: 32px;
+  height: 32px;
+}
+.number {
+  font-size: 20px;
+  margin: 0 8px;
 }
 ```
 
 **Uso:**
+
 ```html
-<app-counter 
-  [inicial]="10"
-  (countChanged)="actualizarContador($event)"
-/>
+<app-counter [inicial]="10" (countChanged)="actualizarContador($event)" />
 ```
 
 ---
 
 ## Ejercicios Guiados
 
+---
+
+> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
+
 ### 🎯 Ejercicio 1: Tarjeta de Producto
+
+**¿Cómo crear el componente?**
+
+Abre la terminal en la carpeta del proyecto y ejecuta:
+
+```bash
+ng generate component components/product-card --standalone
+```
+
+Esto creará los archivos necesarios en `src/app/components/product-card/`.
 
 **Objetivo:** Crear un componente que muestre información de un producto.
 
 **Requisitos:**
+
 - Input `nombre` (requerido)
 - Input `precio` (requerido)
 - Input `imagen` (opcional, con imagen por defecto)
 - Output `comprar` que emita cuando se haga click en "Comprar"
 
 **Estructura:**
+
 ```
 src/app/components/product-card/
   ├── product-card.component.ts
@@ -404,24 +463,25 @@ src/app/components/product-card/
 <summary>💡 Ver solución</summary>
 
 **product-card.component.ts**
+
 ```typescript
-import { Component, input, output } from '@angular/core';
-import { CurrencyPipe } from '@angular/common';
+import { Component, input, output } from "@angular/core";
+import { CurrencyPipe } from "@angular/common";
 
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css'],
+  selector: "app-product-card",
+  templateUrl: "./product-card.component.html",
+  styleUrls: ["./product-card.component.css"],
   standalone: true,
-  imports: [CurrencyPipe]
+  imports: [CurrencyPipe],
 })
 export class ProductCardComponent {
   nombre = input.required<string>();
   precio = input.required<number>();
-  imagen = input<string>('https://via.placeholder.com/200');
-  
+  imagen = input<string>("https://via.placeholder.com/200");
+
   comprar = output<string>();
-  
+
   onComprar() {
     this.comprar.emit(this.nombre());
   }
@@ -429,9 +489,10 @@ export class ProductCardComponent {
 ```
 
 **product-card.component.html**
+
 ```html
 <div class="product-card">
-  <img [src]="imagen()" [alt]="nombre()">
+  <img [src]="imagen()" [alt]="nombre()" />
   <div class="info">
     <h3>{{ nombre() }}</h3>
     <p class="precio">{{ precio() | currency:'EUR' }}</p>
@@ -441,92 +502,88 @@ export class ProductCardComponent {
 ```
 
 **product-card.component.css**
+
 ```css
 .product-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
-  max-width: 250px;
-  transition: transform 0.2s;
+  border: 1px solid #000;
+  padding: 8px;
+  max-width: 200px;
 }
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
 img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  width: 100px;
+  height: 100px;
 }
-
 .info {
-  padding: 1rem;
+  padding: 4px;
 }
-
 h3 {
-  margin: 0 0 0.5rem 0;
-  color: #333;
+  margin: 8px 0;
 }
-
 .precio {
-  font-size: 1.5rem;
   font-weight: bold;
-  color: #28a745;
-  margin: 0.5rem 0;
 }
-
 button {
   width: 100%;
-  padding: 0.75rem;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-button:hover {
-  background: #0056b3;
+  padding: 8px;
 }
 ```
 
-**Uso:**
+**Uso en la app principal:**
+
+**app.component.ts**
+
 ```typescript
+import { Component } from "@angular/core";
+
 @Component({
-  selector: 'app-demo',
-  template: `
-    <app-product-card
-      nombre="Laptop"
-      [precio]="999.99"
-      (comprar)="alComprar($event)"
-    />
-  `
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
-export class DemoComponent {
+export class AppComponent {
   alComprar(producto: string) {
     alert(`Has comprado: ${producto}`);
   }
 }
 ```
 
+**app.component.html**
+
+```html
+<app-product-card nombre="Laptop" [precio]="999.99" (comprar)="alComprar($event)"></app-product-card>
+```
+
 </details>
 
 ---
 
+---
+
+> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
+
 ### 🎯 Ejercicio 2: Input de Búsqueda
+
+**¿Cómo crear el componente?**
+
+Abre la terminal en la carpeta del proyecto y ejecuta:
+
+```bash
+ng generate component components/search-input --standalone
+```
+
+Esto creará los archivos necesarios en `src/app/components/search-input/`.
 
 **Objetivo:** Crear un componente de búsqueda que emita el texto mientras el usuario escribe.
 
 **Requisitos:**
+
 - Input `placeholder` (opcional)
 - Output `search` que emita el texto cada vez que cambia
 - Output `clear` que emita cuando se limpia la búsqueda
 - Botón para limpiar el input
 
 **Estructura:**
+
 ```
 src/app/components/search-input/
   ├── search-input.component.ts
@@ -545,146 +602,164 @@ src/app/components/search-input/
 <summary>💡 Ver solución</summary>
 
 **search-input.component.ts**
+
 ```typescript
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-search-input',
-  templateUrl: './search-input.component.html',
-  styleUrls: ['./search-input.component.css'],
-  standalone: true
+  selector: "app-search-input",
+  templateUrl: "./search-input.component.html",
+  styleUrls: ["./search-input.component.css"],
+  standalone: true,
 })
 export class SearchInputComponent {
-  placeholder = input<string>('Buscar...');
-  
+  placeholder = input<string>("Buscar...");
+
   search = output<string>();
   clear = output<void>();
-  
-  searchText = signal('');
-  
+
+  searchText = signal("");
+
   onInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.searchText.set(value);
     this.search.emit(value);
   }
-  
+
   onClear() {
-    this.searchText.set('');
+    this.searchText.set("");
     this.clear.emit();
-    this.search.emit('');
+    this.search.emit("");
   }
 }
 ```
 
 **search-input.component.html**
+
 ```html
 <div class="search-container">
-  <input 
-    type="text"
-    [placeholder]="placeholder()"
-    [value]="searchText()"
-    (input)="onInput($event)"
-    class="search-input"
-  />
+  <input type="text" [placeholder]="placeholder()" [value]="searchText()" (input)="onInput($event)" class="search-input" />
   @if (searchText()) {
-    <button class="clear-btn" (click)="onClear()">✕</button>
+  <button class="clear-btn" (click)="onClear()">✕</button>
   }
 </div>
 ```
 
 **search-input.component.css**
+
 ```css
 .search-container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 400px;
+  margin-bottom: 8px;
 }
-
 .search-input {
   width: 100%;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 25px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
+  padding: 4px;
 }
-
-.search-input:focus {
-  border-color: #007bff;
-}
-
 .clear-btn {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #999;
-  cursor: pointer;
-  padding: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.clear-btn:hover {
-  color: #333;
+  margin-left: 4px;
 }
 ```
 
 **Uso:**
+**Uso en la app principal:**
+
+**app.component.ts**
+
 ```typescript
+import { Component } from "@angular/core";
+
 @Component({
-  selector: 'app-demo',
-  template: `
-    <app-search-input
-      placeholder="Buscar productos..."
-      (search)="buscar($event)"
-      (clear)="limpiar()"
-    />
-    <p>Buscando: {{ textoBusqueda }}</p>
-  `
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
-export class DemoComponent {
-  textoBusqueda = '';
-  
+export class AppComponent {
+  textoBusqueda = "";
+
   buscar(texto: string) {
     this.textoBusqueda = texto;
-    console.log('Buscar:', texto);
+    console.log("Buscar:", texto);
   }
-  
+
   limpiar() {
-    console.log('Búsqueda limpiada');
+    console.log("Búsqueda limpiada");
+    this.textoBusqueda = "";
   }
 }
 ```
+
+**app.component.html**
+
+```html
+<app-search-input placeholder="Buscar productos..." (search)="buscar($event)" (clear)="limpiar()"></app-search-input>
+<p>Buscando: {{ textoBusqueda }}</p>
+```
+
+> ℹ️ **Nota:** El componente `app-search-input` es el que debes usar en tu app principal. No necesitas crear un componente intermedio para probarlo.
 
 </details>
 
 ---
 
+---
+
+> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
+
 ### 🎯 Ejercicio 3: Lista de Tareas Simple
+
+**¿Cómo crear los componentes?**
+
+Abre la terminal en la carpeta del proyecto y ejecuta:
+
+```bash
+ng generate component components/tasks/task-item --standalone
+ng generate component components/tasks/task-list --standalone
+```
+
+Esto creará los archivos necesarios en `src/app/components/tasks/task-item/` y `src/app/components/tasks/task-list/`.
+
+**Uso en la app principal:**
+
+**app.component.ts**
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+})
+export class AppComponent {}
+```
+
+**app.component.html**
+
+```html
+<app-task-list></app-task-list>
+```
+
+> ℹ️ **Nota:** Usa solo `<app-task-list>` en tu app principal. El componente `app-task-item` es un subcomponente y no se usa directamente, sino a través de `app-task-list`.
 
 **Objetivo:** Crear dos componentes: uno para mostrar una tarea y otro para la lista.
 
 **Componentes:**
 
 **TaskItem:**
+
 - Input `tarea` (string, requerido)
 - Input `completada` (boolean, default false)
 - Output `toggle` cuando se marca/desmarca
 - Output `delete` cuando se elimina
 
 **TaskList:**
+
 - Mantiene array de tareas
 - Usa TaskItem para cada tarea
 - Maneja eventos de los items
 
 **Estructura:**
+
 ```
 src/app/components/tasks/
   ├── task-item/
@@ -701,26 +776,27 @@ src/app/components/tasks/
 <summary>💡 Ver solución</summary>
 
 **task-item.component.ts**
+
 ```typescript
-import { Component, input, output } from '@angular/core';
+import { Component, input, output } from "@angular/core";
 
 @Component({
-  selector: 'app-task-item',
-  templateUrl: './task-item.component.html',
-  styleUrls: ['./task-item.component.css'],
-  standalone: true
+  selector: "app-task-item",
+  templateUrl: "./task-item.component.html",
+  styleUrls: ["./task-item.component.css"],
+  standalone: true,
 })
 export class TaskItemComponent {
   tarea = input.required<string>();
   completada = input<boolean>(false);
-  
+
   toggle = output<void>();
   delete = output<void>();
-  
+
   onToggle() {
     this.toggle.emit();
   }
-  
+
   onDelete() {
     this.delete.emit();
   }
@@ -728,69 +804,36 @@ export class TaskItemComponent {
 ```
 
 **task-item.component.html**
+
 ```html
 <div class="task-item" [class.completed]="completada()">
-  <input 
-    type="checkbox"
-    [checked]="completada()"
-    (change)="onToggle()"
-  />
+  <input type="checkbox" [checked]="completada()" (change)="onToggle()" />
   <span class="task-text">{{ tarea() }}</span>
   <button class="delete-btn" (click)="onDelete()">🗑️</button>
 </div>
 ```
 
 **task-item.component.css**
+
 ```css
 .task-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  background: white;
-  margin-bottom: 0.5rem;
+  border: 1px solid #000;
+  padding: 4px;
+  margin-bottom: 4px;
 }
-
-.task-item.completed {
-  background: #f8f9fa;
-}
-
-.task-item.completed .task-text {
-  text-decoration: line-through;
-  color: #999;
-}
-
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
 .task-text {
-  flex: 1;
-  color: #333;
+  margin-left: 8px;
 }
-
 .delete-btn {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-}
-
-.delete-btn:hover {
-  opacity: 1;
+  margin-left: 8px;
 }
 ```
 
 **task-list.component.ts**
+
 ```typescript
-import { Component, signal } from '@angular/core';
-import { TaskItemComponent } from '../task-item/task-item.component';
+import { Component, signal } from "@angular/core";
+import { TaskItemComponent } from "../task-item/task-item.component";
 
 interface Task {
   id: number;
@@ -799,72 +842,56 @@ interface Task {
 }
 
 @Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css'],
+  selector: "app-task-list",
+  templateUrl: "./task-list.component.html",
+  styleUrls: ["./task-list.component.css"],
   standalone: true,
-  imports: [TaskItemComponent]
+  imports: [TaskItemComponent],
 })
 export class TaskListComponent {
   tasks = signal<Task[]>([
-    { id: 1, text: 'Aprender Angular 18', completed: false },
-    { id: 2, text: 'Practicar input() y output()', completed: false },
-    { id: 3, text: 'Hacer ejercicios', completed: true }
+    { id: 1, text: "Aprender Angular 18", completed: false },
+    { id: 2, text: "Practicar input() y output()", completed: false },
+    { id: 3, text: "Hacer ejercicios", completed: true },
   ]);
-  
+
   toggleTask(id: number) {
-    this.tasks.update(tasks =>
-      tasks.map(task =>
-        task.id === id 
-          ? { ...task, completed: !task.completed }
-          : task
-      )
-    );
+    this.tasks.update((tasks) => tasks.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)));
   }
-  
+
   deleteTask(id: number) {
-    this.tasks.update(tasks =>
-      tasks.filter(task => task.id !== id)
-    );
+    this.tasks.update((tasks) => tasks.filter((task) => task.id !== id));
   }
 }
 ```
 
 **task-list.component.html**
+
 ```html
 <div class="task-list">
   <h2>Mis Tareas</h2>
   @for (task of tasks(); track task.id) {
-    <app-task-item
-      [tarea]="task.text"
-      [completada]="task.completed"
-      (toggle)="toggleTask(task.id)"
-      (delete)="deleteTask(task.id)"
-    />
-  }
-  @empty {
-    <p class="empty">No hay tareas</p>
+  <app-task-item [tarea]="task.text" [completada]="task.completed" (toggle)="toggleTask(task.id)" (delete)="deleteTask(task.id)" />
+  } @empty {
+  <p class="empty">No hay tareas</p>
   }
 </div>
 ```
 
 **task-list.component.css**
-```css
-.task-list {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-}
 
 h2 {
-  margin-bottom: 1.5rem;
-  color: #333;
-}
 
+```css
+.task-list {
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  margin-bottom: 8px;
+}
 .empty {
-  text-align: center;
-  color: #999;
-  padding: 2rem;
+  color: #888;
 }
 ```
 
@@ -878,11 +905,11 @@ h2 {
 
 ```typescript
 // ✅ Bueno: nombres descriptivos
-userName = input<string>('');
+userName = input<string>("");
 userClicked = output<void>();
 
 // ❌ Malo: nombres genéricos
-data = input<string>('');
+data = input<string>("");
 event = output<void>();
 ```
 
@@ -890,7 +917,7 @@ event = output<void>();
 
 ```typescript
 // ✅ Bueno: tipos específicos
-status = input<'active' | 'inactive'>('active');
+status = input<"active" | "inactive">("active");
 age = input<number>(0);
 
 // ❌ Malo: tipo any
@@ -901,7 +928,7 @@ data = input<any>();
 
 ```typescript
 // ✅ Bueno: valor por defecto sensato
-name = input<string>('Invitado');
+name = input<string>("Invitado");
 count = input<number>(0);
 
 // ✅ También bueno: input requerido si siempre debe tener valor
@@ -913,8 +940,8 @@ id = input.required<string>();
 ```typescript
 // ✅ Bueno
 export class MyComponent {
-  name = input<string>('');
-  
+  name = input<string>("");
+
   // Computed para lógica
   greeting = computed(() => `Hola, ${this.name()}!`);
 }
@@ -923,6 +950,7 @@ export class MyComponent {
 ### 5. Archivos Separados
 
 Siempre mantén separados:
+
 - `.component.ts` - Lógica
 - `.component.html` - Template
 - `.component.css` - Estilos
@@ -932,16 +960,19 @@ Siempre mantén separados:
 ## Resumen
 
 ### Input()
+
 - Para **recibir** datos del padre
 - Se lee como función: `nombre()`
 - Tipos: opcional, con default, requerido
 
 ### Output()
+
 - Para **enviar** eventos al padre
 - Se emite con: `evento.emit(valor)`
 - El padre escucha con: `(evento)="metodo($event)"`
 
 ### Flujo de Datos
+
 ```
 Padre --[input]--> Hijo
 Hijo --[output]--> Padre
