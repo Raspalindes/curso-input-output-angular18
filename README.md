@@ -10,22 +10,51 @@
 
 ---
 
-## ¿Cómo ver los ejercicios en el navegador?
+<details>
+<summary>🚀 ¿Cómo clonar y usar este repositorio?</summary>
 
-1. Abre la terminal en la carpeta del proyecto.
-2. Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
+Si nunca has usado Git o es tu primer proyecto Angular, sigue estos pasos:
+
+1. **Clona el repositorio**
+
+Abre una terminal y ejecuta:
+
+```bash
+git clone https://github.com/Raspalindes/curso-input-output-angular18.git
+```
+
+2. **Entra a la carpeta del proyecto**
+
+```bash
+cd curso-input-output-angular18
+```
+
+3. **Instala las dependencias**
+
+Si es tu primer proyecto Angular, asegúrate de tener [Node.js](https://nodejs.org/) instalado.
+
+Luego ejecuta:
+
+```bash
+npm install
+```
+
+4. **Arranca el servidor de desarrollo**
 
 ```bash
 ng serve
 ```
 
-3. Abre tu navegador y visita [http://localhost:4200](http://localhost:4200).
+5. **Abre el navegador en** [http://localhost:4200](http://localhost:4200)
 
-¡Listo! Ahora verás tu aplicación Angular en vivo.
+¡Listo! Ya puedes seguir el curso y ver los ejercicios en vivo.
+
+</details>
 
 ---
 
-## ¿Cómo mostrar un componente en la página principal?
+<details>
+<summary>¿Cómo mostrar un componente en la página principal?</summary>
 
 Por defecto, Angular muestra el contenido de `app.component.html`.
 Para ver tu componente nuevo:
@@ -42,6 +71,8 @@ Para ver tu componente nuevo:
 5. Guarda y recarga la página en el navegador.
 
 Así podrás ver el resultado de cada ejercicio.
+
+</details>
 
 ---
 
@@ -439,7 +470,8 @@ import { CurrencyPipe } from "@angular/common";
 export class ProductCardComponent {
   nombre = input.required<string>();
   precio = input.required<number>();
-  imagen = input<string>("https://via.placeholder.com/200");
+  // un enlace a una foto de una laptop
+  imagen = input<string>("https://i.ibb.co/0g2kRrw/dell-latitude-5400-portatil-356-cm-14-full-hd-intel-core-i5-i5-8250u-8-gb-ddr4-sdram-256-gb-ssd-wi-f.webp");
 
   comprar = output<string>();
 
@@ -947,43 +979,3 @@ Hijo --[output]--> Padre
 ```
 
 ¡Practica con los ejercicios y estarás listo para usar input() y output() en Angular 18! 🚀
-
----
-
-# 🚀 ¿Cómo clonar y usar este repositorio?
-
-Si nunca has usado Git o es tu primer proyecto Angular, sigue estos pasos:
-
-1. **Clona el repositorio**
-
-Abre una terminal y ejecuta:
-
-```bash
-git clone https://github.com/Raspalindes/curso-input-output-angular18.git
-```
-
-2. **Entra a la carpeta del proyecto**
-
-```bash
-cd curso-input-output-angular18
-```
-
-3. **Instala las dependencias**
-
-Si es tu primer proyecto Angular, asegúrate de tener [Node.js](https://nodejs.org/) instalado.
-
-Luego ejecuta:
-
-```bash
-npm install
-```
-
-4. **Arranca el servidor de desarrollo**
-
-```bash
-ng serve
-```
-
-5. **Abre el navegador en** [http://localhost:4200](http://localhost:4200)
-
-¡Listo! Ya puedes seguir el curso y ver los ejercicios en vivo.
