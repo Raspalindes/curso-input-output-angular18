@@ -816,16 +816,9 @@ export class TaskItemComponent {
   margin-bottom: 4px;
   width: 25%;
 }
-
-.task-text.completed {
-  text-decoration: line-through;
-  color: #888;
-}
-
 .task-text {
   margin-left: 8px;
 }
-
 .delete-btn {
   margin-left: 8px;
 }
@@ -882,20 +875,20 @@ export class TaskListComponent {
 
 **task-list.component.css**
 
-.task-list {
-margin: 0;
-padding: 0;
-}
-
 h2 {
-margin-bottom: 8px;
-}
 
+```css
+.task-list {
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  margin-bottom: 8px;
+}
 .empty {
-color: #888;
+  color: #888;
 }
-
-````
+```
 
 </details>
 
@@ -913,7 +906,7 @@ userClicked = output<void>();
 // ❌ Malo: nombres genéricos
 data = input<string>("");
 event = output<void>();
-````
+```
 
 ### 2. Usa Tipos Específicos
 
