@@ -814,6 +814,7 @@ export class TaskItemComponent {
   border: 1px solid #000;
   padding: 4px;
   margin-bottom: 4px;
+  width: 25%;
 }
 .task-text {
   margin-left: 8px;
