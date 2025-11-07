@@ -972,4 +972,6 @@ Padre --[input]--> Hijo
 Hijo --[output]--> Padre
 ```
 
+El **padre** es el componente que importa y muestra al hijo en su HTML. El **hijo** es el componente que es importado y usado dentro del padre.
+
 ¡Practica con los ejercicios y estarás listo para usar input() y output() en Angular 18! 🚀
