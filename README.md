@@ -1,43 +1,3 @@
-# 🚀 ¿Cómo clonar y usar este repositorio?
-
-Si nunca has usado Git o es tu primer proyecto Angular, sigue estos pasos:
-
-1. **Clona el repositorio**
-
-Abre una terminal y ejecuta:
-
-```bash
-git clone https://github.com/Raspalindes/curso-input-output-angular18.git
-```
-
-2. **Entra a la carpeta del proyecto**
-
-```bash
-cd curso-input-output-angular18
-```
-
-3. **Instala las dependencias**
-
-Si es tu primer proyecto Angular, asegúrate de tener [Node.js](https://nodejs.org/) instalado.
-
-Luego ejecuta:
-
-```bash
-npm install
-```
-
-4. **Arranca el servidor de desarrollo**
-
-```bash
-ng serve
-```
-
-5. **Abre el navegador en** [http://localhost:4200](http://localhost:4200)
-
-¡Listo! Ya puedes seguir el curso y ver los ejercicios en vivo.
-
----
-
 # Curso Angular 18 - input() y output() (Nivel Básico)
 
 ## 📚 Tabla de Contenidos
@@ -72,13 +32,14 @@ Para ver tu componente nuevo:
 
 1. Abre el archivo `src/app/app.component.html`.
 2. Borra el contenido que viene por defecto (si quieres).
-3. Agrega el selector de tu componente, por ejemplo:
+3. Importa en el array `imports` de `app.component.ts` el componente que vayas a usar.
+4. Agrega el selector de tu componente, por ejemplo:
 
 ```html
 <app-user-card nombre="Ana García" [edad]="28"></app-user-card>
 ```
 
-4. Guarda y recarga la página en el navegador.
+5. Guarda y recarga la página en el navegador.
 
 Así podrás ver el resultado de cada ejercicio.
 
@@ -530,6 +491,8 @@ button {
 
 **Uso en la app principal:**
 
+> ⚠️ **Recuerda importar el componente en el array `imports` de `app.component.ts` para que funcione en el HTML.**
+
 **app.component.ts**
 
 ```typescript
@@ -661,7 +624,10 @@ export class SearchInputComponent {
 ```
 
 **Uso:**
+
 **Uso en la app principal:**
+
+> ⚠️ **Recuerda importar el componente en el array `imports` de `app.component.ts` para que funcione en el HTML.**
 
 **app.component.ts**
 
@@ -719,6 +685,8 @@ ng generate component components/tasks/task-list --standalone
 Esto creará los archivos necesarios en `src/app/components/tasks/task-item/` y `src/app/components/tasks/task-list/`.
 
 **Uso en la app principal:**
+
+> ⚠️ **Recuerda importar el componente en el array `imports` de `app.component.ts` para que funcione en el HTML.**
 
 **app.component.ts**
 
@@ -979,3 +947,43 @@ Hijo --[output]--> Padre
 ```
 
 ¡Practica con los ejercicios y estarás listo para usar input() y output() en Angular 18! 🚀
+
+---
+
+# 🚀 ¿Cómo clonar y usar este repositorio?
+
+Si nunca has usado Git o es tu primer proyecto Angular, sigue estos pasos:
+
+1. **Clona el repositorio**
+
+Abre una terminal y ejecuta:
+
+```bash
+git clone https://github.com/Raspalindes/curso-input-output-angular18.git
+```
+
+2. **Entra a la carpeta del proyecto**
+
+```bash
+cd curso-input-output-angular18
+```
+
+3. **Instala las dependencias**
+
+Si es tu primer proyecto Angular, asegúrate de tener [Node.js](https://nodejs.org/) instalado.
+
+Luego ejecuta:
+
+```bash
+npm install
+```
+
+4. **Arranca el servidor de desarrollo**
+
+```bash
+ng serve
+```
+
+5. **Abre el navegador en** [http://localhost:4200](http://localhost:4200)
+
+¡Listo! Ya puedes seguir el curso y ver los ejercicios en vivo.
