@@ -1,0 +1,12 @@
+.task-list {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin-bottom: 8px;
+}
+
+.empty {
+    color: #888;
+}

@@ -1,0 +1,13 @@
+<div class="task-list">
+  <h2>Mis Tareas</h2>
+  @for (task of tasks(); track task.id) {
+  <app-task-item
+    [tarea]="task.text"
+    [completada]="task.completed"
+    (toggle)="toggleTask(task.id)"
+    (delete)="deleteTask(task.id)"
+  />
+  } @empty {
+  <p class="empty">No hay tareas</p>
+  }
+</div>

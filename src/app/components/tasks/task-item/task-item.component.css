@@ -1,0 +1,13 @@
+.task-item {
+    border: 1px solid #000;
+    padding: 4px;
+    margin-bottom: 4px;
+}
+
+.task-text {
+    margin-left: 8px;
+}
+
+.delete-btn {
+    margin-left: 8px;
+}

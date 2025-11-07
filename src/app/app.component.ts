@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ProductCardComponent } from "./components/product-card/product-card.component";
 import { SearchInputComponent } from "./components/search-input/search-input.component";
+import { TaskListComponent } from "./components/tasks/task-list/task-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductCardComponent, SearchInputComponent],
+  imports: [ProductCardComponent, SearchInputComponent, TaskListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
