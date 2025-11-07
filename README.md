@@ -816,9 +816,16 @@ export class TaskItemComponent {
   margin-bottom: 4px;
   width: 25%;
 }
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
 .task-text {
   margin-left: 8px;
 }
+
 .delete-btn {
   margin-left: 8px;
 }
