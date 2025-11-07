@@ -218,8 +218,6 @@ export class PadreComponent {
 
 ---
 
-> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#user-content-como-mostrar-un-componente-en-la-pagina-principal)
-
 ### Ejemplo 1: Tarjeta de Usuario Simple
 
 **user-card.component.ts**
@@ -412,8 +410,6 @@ button {
 
 ---
 
-> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#user-content-como-mostrar-un-componente-en-la-pagina-principal)
-
 ### 🎯 Ejercicio 1: Tarjeta de Producto
 
 **¿Cómo crear el componente?**
@@ -553,8 +549,6 @@ export class AppComponent {
 ---
 
 ---
-
-> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
 
 ### 🎯 Ejercicio 2: Input de Búsqueda
 
