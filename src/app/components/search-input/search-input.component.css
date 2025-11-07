@@ -1,0 +1,12 @@
+.search-container {
+    margin-bottom: 8px;
+}
+
+.search-input {
+    width: 25%;
+    padding: 4px;
+}
+
+.clear-btn {
+    margin-left: 4px;
+}

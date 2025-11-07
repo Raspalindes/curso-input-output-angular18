@@ -3,3 +3,9 @@
   [precio]="999.99"
   (comprar)="alComprar($event)"
 ></app-product-card>
+<app-search-input
+  placeholder="Buscar productos..."
+  (search)="buscar($event)"
+  (clear)="limpiar()"
+></app-search-input>
+<p>Buscando: {{ textoBusqueda }}</p>

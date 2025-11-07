@@ -641,7 +641,7 @@ export class SearchInputComponent {
   margin-bottom: 8px;
 }
 .search-input {
-  width: 100%;
+  width: 25%;
   padding: 4px;
 }
 .clear-btn {

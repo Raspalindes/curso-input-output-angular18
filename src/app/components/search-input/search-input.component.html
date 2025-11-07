@@ -1,0 +1,12 @@
+<div class="search-container">
+  <input
+    type="text"
+    [placeholder]="placeholder()"
+    [value]="searchText()"
+    (input)="onInput($event)"
+    class="search-input"
+  />
+  @if (searchText()) {
+  <button class="clear-btn" (click)="onClear()">✕</button>
+  }
+</div>
