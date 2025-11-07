@@ -218,7 +218,7 @@ export class PadreComponent {
 
 ---
 
-> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
+> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#user-content-como-mostrar-un-componente-en-la-pagina-principal)
 
 ### Ejemplo 1: Tarjeta de Usuario Simple
 
@@ -412,7 +412,7 @@ button {
 
 ---
 
-> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#cómo-mostrar-un-componente-en-la-página-principal)
+> 💡 **Recuerda:** [¿Cómo mostrar este componente?](#user-content-como-mostrar-un-componente-en-la-pagina-principal)
 
 ### 🎯 Ejercicio 1: Tarjeta de Producto
 
