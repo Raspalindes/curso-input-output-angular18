@@ -1,5 +1,5 @@
-<div class="task-item" [class.completed]="completada()">
+<div class="task-item">
   <input type="checkbox" [checked]="completada()" (change)="onToggle()" />
-  <span class="task-text">{{ tarea() }}</span>
+  <span class="task-text" [class.completed]="completada()">{{ tarea() }}</span>
   <button class="delete-btn" (click)="onDelete()">🗑️</button>
 </div>

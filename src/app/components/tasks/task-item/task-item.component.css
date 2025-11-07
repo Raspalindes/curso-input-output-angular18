@@ -3,7 +3,11 @@
     padding: 4px;
     margin-bottom: 4px;
     width: 25%;
+}
 
+.task-text.completed {
+    text-decoration: line-through;
+    color: #888;
 }
 
 .task-text {
